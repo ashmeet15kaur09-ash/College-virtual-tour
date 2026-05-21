@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitkara University — Campus Map</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{overflow-x:hidden;}
+    nav{position:sticky;top:0;z-index:9999;}
+    @media(max-width:768px){
+      .nav-links{
+        flex-direction:column;
+        gap:12px;
+      }
+      section{
+        padding:20px;
+      }
+    }
+    </style></head>
+<body><nav>
+<a class="nav-logo" href="#hero">⬡ <span>Chitkara</span>University</a>
+<ul class="nav-links">
+<li><a href="map.html" target="_blank">Campus Map</a></li>
+<li><a href="gallery.html" target="_blank">Gallery</a></li>
+<li><a href="departments.html" target="_blank">Departments</a></li>
+<li><a href="guide.html" target="_blank">Guide</a></li>
+<li><a href="events.html" target="_blank">Events</a></li>
+<li><a href="transport.html" target="_blank">Transport</a></li>
+</ul>
+<div class="nav-right">
+<button class="theme-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
+<span class="theme-icon moon">🌙</span>
+<span class="theme-icon sun">☀️</span>
+</button>
+<div class="hamburger" onclick="toggleMobileNav()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+<a href="map.html" onclick="toggleMobileNav()">Campus Map</a>
+<a href="gallery.html" onclick="toggleMobileNav()">Gallery</a>
+<a href="departments.html" onclick="toggleMobileNav()">Departments</a>
+<a href="guide.html" onclick="toggleMobileNav()">Fresher Guide</a>
+<a href="events.html" onclick="toggleMobileNav()">Events</a>
+<a href="transport.html" onclick="toggleMobileNav()">Transport</a>
+</div>
+<section id="map">
+<div class="section-label reveal">🗺 Interactive</div>
+<h2 class="section-title reveal">Campus Map</h2>
+<p class="section-sub reveal">Click any pin to explore buildings and facilities across our campus.</p>
+<div class="campus-map-wrap reveal">
+<div class="campus-map" id="campusMap">
+<!-- Roads -->
+<div class="map-road-h" style="left:0;right:0;top:48%;height:18px;"></div>
+<div class="map-road-v" style="left:40%;top:0;bottom:0;width:16px;"></div>
+<div class="map-road-h" style="left:0;right:0;top:22%;height:10px;opacity:0.5;"></div>
+<div class="map-road-h" style="left:0;right:0;top:75%;height:10px;opacity:0.5;"></div>
+<!-- Green areas -->
+<div class="map-green" style="left:44%;right:4%;top:52%;bottom:4%;"></div>
+<div class="map-green" style="left:2%;top:55%;width:20%;height:20%;"></div>
+<!-- Pins -->
+<div class="map-pin" onclick="showTooltip(this,'Library','🏛','A treasure trove of 2L+ books, journals &amp; digital resources. Open 7 AM–10 PM.','Academic')" onmouseleave="hideTooltip()" style="left:20%;top:40%">
+<img src="https://www.chitkara.edu.in/wp-content/uploads/2013/07/library_punjab.jpg"/>
+<div class="pin-bubble">🏛 Library</div>
+<div class="pin-tail"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'CS &amp; AI Labs','🖥','State-of-the-art computing labs with GPU clusters, VR stations, and robotics kits.','Technology')" onmouseleave="hideTooltip()" style="left:60%;top:35%">
+<img src="https://www.chitkara.edu.in/blogs/wp-content/uploads/2022/03/Top-Reasons.jpg"/>
+<div class="pin-bubble blue">🖥 CS Labs</div>
+<div class="pin-tail blue"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Boys &amp; Girls Hostel','🏠','Separate AC hostels with Wi-Fi, laundry, and 24-hr security. Capacity: 3000.','Residential')" onmouseleave="hideTooltip()" style="left:15%;top:70%">
+<img src="https://image-static.collegedunia.com/public/reviewPhotos/507534/IMG20230826211931.jpg"/>
+<div class="pin-bubble green">🏠 Hostel</div>
+<div class="pin-tail green"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Central Cafeteria','🍽','Multi-cuisine food court serving 4000+ meals/day. Veg &amp; Non-veg. Open 7 AM–9 PM.','Dining')" onmouseleave="hideTooltip()" style="left:55%;top:68%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLlFdcZmaueBlw9M6XtRPd2bybM-NW83ShOQ&amp;s"/>
+<div class="pin-bubble gold">🍽 Cafeteria</div>
+<div class="pin-tail gold"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Auditorium','🎭','4000-seat main auditorium + 3 seminar halls for fests, TEDx, and convocations.','Events')" onmouseleave="hideTooltip()" style="left:80%;top:42%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoeXYZgvL9yNTYdwnaQhnmVrruyqk1XFBmDw&amp;s"/>
+<div class="pin-bubble purple">🎭 Auditorium</div>
+<div class="pin-tail purple"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Admin Block','🏢','Principal office, admissions, exams cell &amp; grievance portal. Mon–Sat 9 AM–5 PM.','Administration')" onmouseleave="hideTooltip()" style="left:38%;top:25%">
+<img src="https://www.chitkara.edu.in/international/wp-content/uploads/2025/08/Faq-Banner-mobile.webp"/>
+<div class="pin-bubble">🏢 Admin</div>
+<div class="pin-tail"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Sports Complex','⚽','Football, cricket, basketball, badminton courts + Olympic-size swimming pool.','Sports')" onmouseleave="hideTooltip()" style="left:72%;top:22%">
+<img src="https://www.chitkara.edu.in/wp-content/uploads/2025/10/Pickleball-Tournament-banner.jpg"/>
+<div class="pin-bubble green">⚽ Sports</div>
+<div class="pin-tail green"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Medical Center','🏥','24/7 campus clinic with 3 doctors, ambulance &amp; pharmacy. Emergency: ext. 199.','Health')" onmouseleave="hideTooltip()" style="left:28%;top:57%">
+<img src="https://www.chitkara.edu.in/images/support-services/16-Wheel-Chair-in-Dispensary.jpg"/>
+<div class="pin-bubble">🏥 Medical</div>
+<div class="pin-tail"></div>
+</div>
+<!-- Tooltip -->
+<div class="map-tooltip" id="mapTooltip"></div>
+</div>
+<div class="map-legend">
+<div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Academic / Admin</div>
+<div class="legend-item"><div class="legend-dot" style="background:#2a5e8e"></div> Technology</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--accent3)"></div> Residential / Sports</div>
+<div class="legend-item"><div class="legend-dot" style="background:#b8850a"></div> Dining</div>
+<div class="legend-item"><div class="legend-dot" style="background:#6a3eae"></div> Events</div>
+</div>
+</div>
+</section><script src="script.js"></script></body>
+</html>

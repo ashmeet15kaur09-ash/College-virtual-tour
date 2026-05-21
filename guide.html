@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitkara University — Fresher Guide</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{overflow-x:hidden;}
+    nav{position:sticky;top:0;z-index:9999;}
+    @media(max-width:768px){
+      .nav-links{
+        flex-direction:column;
+        gap:12px;
+      }
+      section{
+        padding:20px;
+      }
+    }
+    </style></head>
+<body><nav>
+<a class="nav-logo" href="#hero">⬡ <span>Chitkara</span>University</a>
+<ul class="nav-links">
+<li><a href="map.html" target="_blank">Campus Map</a></li>
+<li><a href="gallery.html" target="_blank">Gallery</a></li>
+<li><a href="departments.html" target="_blank">Departments</a></li>
+<li><a href="guide.html" target="_blank">Guide</a></li>
+<li><a href="events.html" target="_blank">Events</a></li>
+<li><a href="transport.html" target="_blank">Transport</a></li>
+</ul>
+<div class="nav-right">
+<button class="theme-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
+<span class="theme-icon moon">🌙</span>
+<span class="theme-icon sun">☀️</span>
+</button>
+<div class="hamburger" onclick="toggleMobileNav()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+<a href="map.html" onclick="toggleMobileNav()">Campus Map</a>
+<a href="gallery.html" onclick="toggleMobileNav()">Gallery</a>
+<a href="departments.html" onclick="toggleMobileNav()">Departments</a>
+<a href="guide.html" onclick="toggleMobileNav()">Fresher Guide</a>
+<a href="events.html" onclick="toggleMobileNav()">Events</a>
+<a href="transport.html" onclick="toggleMobileNav()">Transport</a>
+</div>
+<section id="guide">
+<div class="section-label reveal">📖 First-Year</div>
+<h2 class="section-title reveal">Fresher's Complete Guide</h2>
+<p class="section-sub reveal">Everything you need to know to start your college life on the right foot.</p>
+<div class="guide-grid">
+<div class="guide-card reveal">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(200,80,26,0.1)">📋</div>
+<div class="guide-card-title">Campus Rules &amp; Regulations</div>
+</div>
+<ul class="guide-list">
+<li>Attendance minimum is 75% per subject — below this means exam bar.</li>
+<li>ID cards must be worn within campus premises at all times.</li>
+<li>Hostel curfew: 10 PM on weekdays, 11 PM on weekends.</li>
+<li>Mobile phones permitted outside lecture halls only.</li>
+<li>Ragging is strictly prohibited. Report to anti-ragging cell: ext. 100.</li>
+<li>Library books must be returned within 14 days to avoid fines.</li>
+<li>Dress code: formals on Mondays, formals or casuals other days.</li>
+</ul>
+</div>
+<div class="guide-card reveal reveal-delay-1">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(42,110,68,0.1)">💡</div>
+<div class="guide-card-title">Pro Tips for First-Years</div>
+</div>
+<ul class="guide-list">
+<li>Join at least one technical club and one cultural club in the first month.</li>
+<li>Get your ERP login from IT dept. on Day 1 — everything runs through it.</li>
+<li>Talk to seniors — they have old question papers and project ideas.</li>
+<li>Visit the library in the first week and get your library card made.</li>
+<li>Attend all orientation sessions — free resources and connections!</li>
+<li>Download the campus app for timetables, notices, and bus tracking.</li>
+<li>Visit your department advisor every semester to plan your electives wisely.</li>
+</ul>
+</div>
+<div class="guide-card reveal">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(42,94,142,0.1)">📅</div>
+<div class="guide-card-title">Academic Calendar Highlights</div>
+</div>
+<ul class="guide-list">
+<li>Orientation Week: Aug 1–5, 2025 — Mandatory for all freshers.</li>
+<li>Internal exams (CIA-1): September, CIA-2: November, End-sem: December.</li>
+<li>Winter break: Dec 25 – Jan 5.</li>
+<li>Technical fest NEXUS: February — Start preparing now!</li>
+<li>Cultural fest AURORA: March — Register early for competitions.</li>
+<li>Industrial visits scheduled in Semester 2 for all branches.</li>
+</ul>
+</div>
+<div class="guide-card reveal reveal-delay-1">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(184,133,10,0.1)">💰</div>
+<div class="guide-card-title">Finance &amp; Scholarships</div>
+</div>
+<ul class="guide-list">
+<li>Merit scholarships available for students with 90%+ in Class 12.</li>
+<li>Apply for government scholarships (SC/ST/OBC/EWS) before Sept 30.</li>
+<li>Fee payment deadline: 15th of each semester month.</li>
+<li>On-campus part-time opportunities available through placement cell.</li>
+<li>Sports quota and NCC concessions — apply at admin block by Aug 20.</li>
+<li>Book an appointment with student welfare officer for financial hardship.</li>
+</ul>
+</div>
+</div>
+</section><script src="script.js"></script></body>
+</html>

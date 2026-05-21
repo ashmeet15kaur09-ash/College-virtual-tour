@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitkara University — Virtual Campus Tour</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<a class="nav-logo" href="#hero">⬡ <span>Chitkara</span>University</a>
+<ul class="nav-links">
+<li><a href="map.html" target="_blank">Campus Map</a></li>
+<li><a href="gallery.html" target="_blank">Gallery</a></li>
+<li><a href="departments.html" target="_blank">Departments</a></li>
+<li><a href="guide.html" target="_blank">Guide</a></li>
+<li><a href="events.html" target="_blank">Events</a></li>
+<li><a href="transport.html" target="_blank">Transport</a></li>
+</ul>
+<div class="nav-right">
+<button class="theme-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
+<span class="theme-icon moon">🌙</span>
+<span class="theme-icon sun">☀️</span>
+</button>
+<div class="hamburger" onclick="toggleMobileNav()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+<a href="#map" onclick="toggleMobileNav()">Campus Map</a>
+<a href="#gallery" onclick="toggleMobileNav()">Gallery</a>
+<a href="#departments" onclick="toggleMobileNav()">Departments</a>
+<a href="#guide" onclick="toggleMobileNav()">Fresher Guide</a>
+<a href="#events" onclick="toggleMobileNav()">Events</a>
+<a href="#transport" onclick="toggleMobileNav()">Transport</a>
+</div>
+<!-- HERO -->
+<section id="hero">
+<div class="hero-bg"></div>
+<div class="hero-grid"></div>
+<div class="hero-content">
+<div class="hero-badge">
+<span class="hero-badge-dot"></span>
+      Welcome, Class of 2026 — Your Journey Begins Here
+    </div>
+<h1 class="hero-title">
+      Explore Your<br/><span class="accent">Campus</span> Like<br/>Never <span class="accent2">Before.</span>
+</h1>
+<p class="hero-sub">Your complete virtual guide to Chitkara University — discover buildings, find classrooms, meet departments, and feel at home before Day One.</p>
+<div class="hero-btns">
+<a class="btn-primary" href="#map">🗺 Explore Campus Map</a>
+<a class="btn-secondary" href="#guide">📖 Fresher's Guide</a>
+</div>
+</div>
+<div class="hero-stats">
+<div class="stat-card reveal"><div class="stat-num">12K+</div><div class="stat-label">Students</div></div>
+<div class="stat-card reveal reveal-delay-1"><div class="stat-num">8</div><div class="stat-label">Departments</div></div>
+<div class="stat-card reveal reveal-delay-2"><div class="stat-num">200+</div><div class="stat-label">Clubs &amp; Labs</div></div>
+<div class="stat-card reveal reveal-delay-3"><div class="stat-num">95%</div><div class="stat-label">Placement Rate</div></div>
+</div>
+</section>
+<!-- FIND MY CLASSROOM -->
+<section id="search" style="padding:50px 5%">
+<div class="section-label reveal">🔍 Quick Finder</div>
+<h2 class="section-title reveal">Find My Classroom</h2>
+<p class="section-sub reveal">Search for any room, lab, office, or facility on campus.</p>
+<div class="search-box-wrap reveal">
+<input id="searchInput" onkeyup="handleSearch(event)" placeholder="e.g. CS Lab 3, Room 204, Prof. Office..." type="text"/>
+<button class="search-btn" onclick="doSearch()">Search →</button>
+</div>
+<div class="search-results" id="searchResults"></div>
+</section>
+<!-- CAMPUS MAP -->
+<section id="map">
+<div class="section-label reveal">🗺 Interactive</div>
+<h2 class="section-title reveal">Campus Map</h2>
+<p class="section-sub reveal">Click any pin to explore buildings and facilities across our campus.</p>
+<div class="campus-map-wrap reveal">
+<div class="campus-map" id="campusMap">
+<!-- Roads -->
+<div class="map-road-h" style="left:0;right:0;top:48%;height:18px;"></div>
+<div class="map-road-v" style="left:40%;top:0;bottom:0;width:16px;"></div>
+<div class="map-road-h" style="left:0;right:0;top:22%;height:10px;opacity:0.5;"></div>
+<div class="map-road-h" style="left:0;right:0;top:75%;height:10px;opacity:0.5;"></div>
+<!-- Green areas -->
+<div class="map-green" style="left:44%;right:4%;top:52%;bottom:4%;"></div>
+<div class="map-green" style="left:2%;top:55%;width:20%;height:20%;"></div>
+<!-- Pins -->
+<div class="map-pin" onclick="showTooltip(this,'Library','🏛','A treasure trove of 2L+ books, journals &amp; digital resources. Open 7 AM–10 PM.','Academic')" onmouseleave="hideTooltip()" style="left:20%;top:40%">
+<img src="https://www.chitkara.edu.in/wp-content/uploads/2013/07/library_punjab.jpg"/>
+<div class="pin-bubble">🏛 Library</div>
+<div class="pin-tail"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'CS &amp; AI Labs','🖥','State-of-the-art computing labs with GPU clusters, VR stations, and robotics kits.','Technology')" onmouseleave="hideTooltip()" style="left:60%;top:35%">
+<img src="https://www.chitkara.edu.in/blogs/wp-content/uploads/2022/03/Top-Reasons.jpg"/>
+<div class="pin-bubble blue">🖥 CS Labs</div>
+<div class="pin-tail blue"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Boys &amp; Girls Hostel','🏠','Separate AC hostels with Wi-Fi, laundry, and 24-hr security. Capacity: 3000.','Residential')" onmouseleave="hideTooltip()" style="left:15%;top:70%">
+<img src="https://image-static.collegedunia.com/public/reviewPhotos/507534/IMG20230826211931.jpg"/>
+<div class="pin-bubble green">🏠 Hostel</div>
+<div class="pin-tail green"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Central Cafeteria','🍽','Multi-cuisine food court serving 4000+ meals/day. Veg &amp; Non-veg. Open 7 AM–9 PM.','Dining')" onmouseleave="hideTooltip()" style="left:55%;top:68%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLlFdcZmaueBlw9M6XtRPd2bybM-NW83ShOQ&amp;s"/>
+<div class="pin-bubble gold">🍽 Cafeteria</div>
+<div class="pin-tail gold"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Auditorium','🎭','4000-seat main auditorium + 3 seminar halls for fests, TEDx, and convocations.','Events')" onmouseleave="hideTooltip()" style="left:80%;top:42%">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoeXYZgvL9yNTYdwnaQhnmVrruyqk1XFBmDw&amp;s"/>
+<div class="pin-bubble purple">🎭 Auditorium</div>
+<div class="pin-tail purple"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Admin Block','🏢','Principal office, admissions, exams cell &amp; grievance portal. Mon–Sat 9 AM–5 PM.','Administration')" onmouseleave="hideTooltip()" style="left:38%;top:25%">
+<img src="https://www.chitkara.edu.in/international/wp-content/uploads/2025/08/Faq-Banner-mobile.webp"/>
+<div class="pin-bubble">🏢 Admin</div>
+<div class="pin-tail"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Sports Complex','⚽','Football, cricket, basketball, badminton courts + Olympic-size swimming pool.','Sports')" onmouseleave="hideTooltip()" style="left:72%;top:22%">
+<img src="https://www.chitkara.edu.in/wp-content/uploads/2025/10/Pickleball-Tournament-banner.jpg"/>
+<div class="pin-bubble green">⚽ Sports</div>
+<div class="pin-tail green"></div>
+</div>
+<div class="map-pin" onclick="showTooltip(this,'Medical Center','🏥','24/7 campus clinic with 3 doctors, ambulance &amp; pharmacy. Emergency: ext. 199.','Health')" onmouseleave="hideTooltip()" style="left:28%;top:57%">
+<img src="https://www.chitkara.edu.in/images/support-services/16-Wheel-Chair-in-Dispensary.jpg"/>
+<div class="pin-bubble">🏥 Medical</div>
+<div class="pin-tail"></div>
+</div>
+<!-- Tooltip -->
+<div class="map-tooltip" id="mapTooltip"></div>
+</div>
+<div class="map-legend">
+<div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Academic / Admin</div>
+<div class="legend-item"><div class="legend-dot" style="background:#2a5e8e"></div> Technology</div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--accent3)"></div> Residential / Sports</div>
+<div class="legend-item"><div class="legend-dot" style="background:#b8850a"></div> Dining</div>
+<div class="legend-item"><div class="legend-dot" style="background:#6a3eae"></div> Events</div>
+</div>
+</div>
+</section>
+<!-- GALLERY -->
+<section id="gallery" style="background:var(--bg2)">
+<div class="section-label reveal">📸 Visual Tour</div>
+<h2 class="section-title reveal">Campus Gallery</h2>
+<p class="section-sub reveal">A glimpse of life at Chitkara — from labs to festivals.</p>
+<div class="gallery-grid reveal">
+<div class="gallery-item tall">
+<img src="https://dfhe5ze0n4pxu.cloudfront.net/College/Background-Images/Background-Image-1756273936644.jpg"/>
+<div class="gallery-overlay"><div class="gallery-label">🏛 Grand Entrance</div></div>
+</div>
+<div class="gallery-item">
+<img class="gallery-img" src="https://www.chitkara.edu.in/blogs/wp-content/uploads/2025/07/Innovation-and-Startups-on-Campus.jpg"/>
+<div class="gallery-overlay"><div class="gallery-label">🖥 Innovation Lab</div></div>
+</div>
+<div class="gallery-item">
+<img class="gallery-img" src="https://www.chitkara.edu.in/wp-content/uploads/2013/07/library_punjab.jpg"/>
+<!-- <div class="gallery-placeholder">📚<span>Central Library</span></div> -->
+<div class="gallery-overlay"><div class="gallery-label">📚 Central Library</div></div>
+</div>
+<div class="gallery-item wide">
+<img class="gallery-img" src="https://www.chitkarauniversity.edu.in/wp-content/uploads/2024/09/Annual-Convocation-2024-banner.jpg"/>
+<div class="gallery-overlay"><div class="gallery-label">🎭 Annual Convocation</div></div>
+</div>
+<div class="gallery-item">
+<img class="gallery-img" src="https://www.chitkara.edu.in/wp-content/themes/chitkara/images/sports/table-tennisa.jpg"/>
+<div class="gallery-overlay"><div class="gallery-label">⚽ Sports Complex</div></div>
+</div>
+<div class="gallery-item">
+<img class="gallery-img" src="https://image-static.collegedunia.com/public/dashboard_upload/1773565186_IMG_3956.jpeg"/>
+<div class="gallery-overlay"><div class="gallery-label">🍽 Food Court</div></div>
+</div>
+<div class="gallery-item">
+<img class="gallery-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrmz4DGH6cjOY6b3sBeorX1br1iwDNsQbO8g&amp;s"/>
+<div class="gallery-overlay"><div class="gallery-label">🌿 Green Campus</div></div>
+</div>
+<div class="gallery-item">
+<img class="gallery-img" src="https://www.chitkara.edu.in/wp-content/uploads/2022/08/cultural-night-banner.jpg"/>
+<div class="gallery-overlay"><div class="gallery-label">🎨 Cultural Hub</div></div>
+</div>
+</div>
+</section>
+<!-- DEPARTMENTS -->
+<section id="departments">
+<div class="section-label reveal">🎓 Academics</div>
+<h2 class="section-title reveal">Our Departments</h2>
+<p class="section-sub reveal">Explore the academic homes of innovation, discovery, and excellence.</p>
+<div class="dept-grid">
+<div class="dept-card reveal" style="--dept-color:#2a5e8e">
+<span class="dept-icon">💻</span>
+<div class="dept-name">CSE</div>
+<div class="dept-full">Computer Science &amp; Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">120 Seats</span>
+<span class="dept-tag">NBA Accredited</span>
+<span class="dept-tag">4 Labs</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-1" style="--dept-color:#7b3aae">
+<span class="dept-icon">🤖</span>
+<div class="dept-name">AI/ML</div>
+<div class="dept-full">Artificial Intelligence &amp; Machine Learning</div>
+<div class="dept-meta">
+<span class="dept-tag">60 Seats</span>
+<span class="dept-tag">GPU Cluster</span>
+<span class="dept-tag">New Dept</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-2" style="--dept-color:#c8501a">
+<span class="dept-icon">⚡</span>
+<div class="dept-name">ECE</div>
+<div class="dept-full">Electronics &amp; Communication Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">90 Seats</span>
+<span class="dept-tag">VLSI Lab</span>
+<span class="dept-tag">IoT Hub</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-3" style="--dept-color:#2a6e44">
+<span class="dept-icon">🏗</span>
+<div class="dept-name">Civil</div>
+<div class="dept-full">Civil Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">90 Seats</span>
+<span class="dept-tag">Survey Lab</span>
+<span class="dept-tag">CAD Center</span>
+</div>
+</div>
+<div class="dept-card reveal" style="--dept-color:#b8850a">
+<span class="dept-icon">⚙️</span>
+<div class="dept-name">MECH</div>
+<div class="dept-full">Mechanical Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">120 Seats</span>
+<span class="dept-tag">3D Print Lab</span>
+<span class="dept-tag">CNC Center</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-1" style="--dept-color:#1e6e8a">
+<span class="dept-icon">🛢</span>
+<div class="dept-name">EEE</div>
+<div class="dept-full">Electrical &amp; Electronics Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">60 Seats</span>
+<span class="dept-tag">Power Lab</span>
+<span class="dept-tag">Solar Plant</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-2" style="--dept-color:#8e3a3a">
+<span class="dept-icon">🔬</span>
+<div class="dept-name">IT</div>
+<div class="dept-full">Information Technology</div>
+<div class="dept-meta">
+<span class="dept-tag">60 Seats</span>
+<span class="dept-tag">Cyber Lab</span>
+<span class="dept-tag">Cloud Hub</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-3" style="--dept-color:#4a7a1e">
+<span class="dept-icon">📊</span>
+<div class="dept-name">MBA</div>
+<div class="dept-full">Master of Business Administration</div>
+<div class="dept-meta">
+<span class="dept-tag">120 Seats</span>
+<span class="dept-tag">Bloomberg Lab</span>
+<span class="dept-tag">B-School</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FRESHER GUIDE -->
+<section id="guide">
+<div class="section-label reveal">📖 First-Year</div>
+<h2 class="section-title reveal">Fresher's Complete Guide</h2>
+<p class="section-sub reveal">Everything you need to know to start your college life on the right foot.</p>
+<div class="guide-grid">
+<div class="guide-card reveal">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(200,80,26,0.1)">📋</div>
+<div class="guide-card-title">Campus Rules &amp; Regulations</div>
+</div>
+<ul class="guide-list">
+<li>Attendance minimum is 75% per subject — below this means exam bar.</li>
+<li>ID cards must be worn within campus premises at all times.</li>
+<li>Hostel curfew: 10 PM on weekdays, 11 PM on weekends.</li>
+<li>Mobile phones permitted outside lecture halls only.</li>
+<li>Ragging is strictly prohibited. Report to anti-ragging cell: ext. 100.</li>
+<li>Library books must be returned within 14 days to avoid fines.</li>
+<li>Dress code: formals on Mondays, formals or casuals other days.</li>
+</ul>
+</div>
+<div class="guide-card reveal reveal-delay-1">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(42,110,68,0.1)">💡</div>
+<div class="guide-card-title">Pro Tips for First-Years</div>
+</div>
+<ul class="guide-list">
+<li>Join at least one technical club and one cultural club in the first month.</li>
+<li>Get your ERP login from IT dept. on Day 1 — everything runs through it.</li>
+<li>Talk to seniors — they have old question papers and project ideas.</li>
+<li>Visit the library in the first week and get your library card made.</li>
+<li>Attend all orientation sessions — free resources and connections!</li>
+<li>Download the campus app for timetables, notices, and bus tracking.</li>
+<li>Visit your department advisor every semester to plan your electives wisely.</li>
+</ul>
+</div>
+<div class="guide-card reveal">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(42,94,142,0.1)">📅</div>
+<div class="guide-card-title">Academic Calendar Highlights</div>
+</div>
+<ul class="guide-list">
+<li>Orientation Week: Aug 1–5, 2025 — Mandatory for all freshers.</li>
+<li>Internal exams (CIA-1): September, CIA-2: November, End-sem: December.</li>
+<li>Winter break: Dec 25 – Jan 5.</li>
+<li>Technical fest NEXUS: February — Start preparing now!</li>
+<li>Cultural fest AURORA: March — Register early for competitions.</li>
+<li>Industrial visits scheduled in Semester 2 for all branches.</li>
+</ul>
+</div>
+<div class="guide-card reveal reveal-delay-1">
+<div class="guide-card-header">
+<div class="guide-icon-wrap" style="background:rgba(184,133,10,0.1)">💰</div>
+<div class="guide-card-title">Finance &amp; Scholarships</div>
+</div>
+<ul class="guide-list">
+<li>Merit scholarships available for students with 90%+ in Class 12.</li>
+<li>Apply for government scholarships (SC/ST/OBC/EWS) before Sept 30.</li>
+<li>Fee payment deadline: 15th of each semester month.</li>
+<li>On-campus part-time opportunities available through placement cell.</li>
+<li>Sports quota and NCC concessions — apply at admin block by Aug 20.</li>
+<li>Book an appointment with student welfare officer for financial hardship.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- EVENTS -->
+<section id="events" style="background:var(--bg2)">
+<div class="section-label reveal">🎉 Campus Life</div>
+<h2 class="section-title reveal">Events &amp; Fests</h2>
+<p class="section-sub reveal">A year full of memories — hackathons, cultural fests, sports meets, and more.</p>
+<div class="events-grid">
+<div class="event-card reveal">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2025/07/Jazzee-banner.jpg"/>
+<div class="event-info">
+<div class="event-date">FEB 14–16 · 2026</div>
+<div class="event-name"> Tech Fest</div>
+<div class="event-desc">Hackathons, robotics wars, paper presentations &amp; startup pitches.</div>
+<span class="event-badge">🏆 ₹5L Prize Pool</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-1">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2022/12/Christmas-Music-Fiesta.jpg"/>
+<div class="event-info">
+<div class="event-date">MAR 7–9 · 2026</div>
+<div class="event-name">AURORA Cultural</div>
+<div class="event-desc">Dance, drama, music, fashion shows &amp; celebrity night performances.</div>
+<span class="event-badge">🎤 Star Night</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-2">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2024/11/AIU-North-Zone-Sports-Championships-banner.jpg"/>
+<div class="event-info">
+<div class="event-date">JAN 18–22 · 2026</div>
+<div class="event-name">Sports Mania</div>
+<div class="event-desc">Inter-college sports meet covering 15+ events from cricket to chess.</div>
+<span class="event-badge">🥇 Inter-college</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-3">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2017/11/SAP1.jpg"/>
+<div class="event-info">
+<div class="event-date">NOV 2–3 · 2025</div>
+<div class="event-name">Hackers 48</div>
+<div class="event-desc">48-hour non-stop hackathon. Build something world-changing.</div>
+<span class="event-badge">⚡ 48 Hours</span>
+</div>
+</div>
+<div class="event-card reveal">
+<img class="event-img" src="https://royalpatiala.in/wp-content/uploads/2023/09/pic-4-scaled.webp"/>
+<div class="event-info">
+<div class="event-date">OCT 12 · 2025</div>
+<div class="event-name">TEDx Chitkara</div>
+<div class="event-desc">Ideas worth spreading — industry leaders, innovators &amp; changemakers.</div>
+<span class="event-badge">🎙 Licensed Event</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-1">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2024/12/Ozone-Day-banner.jpg"/>
+<div class="event-info">
+<div class="event-date">APR 22 · 2026</div>
+<div class="event-name">Green Campus Day</div>
+<div class="event-desc">Plantation drives, eco-workshops, waste management competitions.</div>
+<span class="event-badge">🌱 Eco Initiative</span>
+</div>
+</div>
+</div>
+</section>
+<!-- TRANSPORT & EMERGENCY -->
+<section id="transport">
+<div class="section-label reveal">🚌 Getting Around</div>
+<h2 class="section-title reveal">Transport &amp; Emergency</h2>
+<p class="section-sub reveal">Campus bus routes and emergency contacts — keep this handy on Day 1.</p>
+<div class="transport-grid">
+<div class="transport-card reveal">
+<h3>🚌 Campus Bus Routes</h3>
+<div class="bus-route">
+<div class="bus-num">B1</div>
+<div class="bus-info">
+<div class="bus-name">City Center ↔ Campus Gate</div>
+<div class="bus-time">⏰ Departs: 7:30 AM, 8:00 AM, 4:30 PM, 5:30 PM</div>
+</div>
+</div>
+<div class="bus-route">
+<div class="bus-num">B2</div>
+<div class="bus-info">
+<div class="bus-name">North Zone ↔ Academic Block</div>
+<div class="bus-time">⏰ Departs: 7:45 AM, 8:15 AM, 5:00 PM</div>
+</div>
+</div>
+<div class="bus-route">
+<div class="bus-num">B3</div>
+<div class="bus-info">
+<div class="bus-name">East Colony ↔ Hostel Gate</div>
+<div class="bus-time">⏰ Departs: 8:00 AM, 5:15 PM, 9:45 PM</div>
+</div>
+</div>
+<div class="bus-route">
+<div class="bus-num">B4</div>
+<div class="bus-info">
+<div class="bus-name">Railway Station ↔ Main Gate</div>
+<div class="bus-time">⏰ Departs: 7:00 AM, 9:00 AM, 6:00 PM</div>
+</div>
+</div>
+<div class="bus-route">
+<div class="bus-num">B5</div>
+<div class="bus-info">
+<div class="bus-name">Girls Hostel Shuttle (On-campus)</div>
+<div class="bus-time">⏰ Every 30 minutes, 7 AM–10 PM</div>
+</div>
+</div>
+</div>
+<div class="transport-card reveal reveal-delay-1">
+<h3>🆘 Emergency Contacts</h3>
+<div class="emergency-grid">
+<div class="emergency-item">
+<div class="emergency-icon">🚑</div>
+<div>
+<div class="emergency-name">Medical Emergency</div>
+<div class="emergency-num">Ext. 199 · +91-98765-00199</div>
+</div>
+<button class="emergency-call">Call</button>
+</div>
+<div class="emergency-item">
+<div class="emergency-icon">🚒</div>
+<div>
+<div class="emergency-name">Fire &amp; Safety</div>
+<div class="emergency-num">Ext. 101 · +91-98765-00101</div>
+</div>
+<button class="emergency-call">Call</button>
+</div>
+<div class="emergency-item">
+<div class="emergency-icon">🛡</div>
+<div>
+<div class="emergency-name">Campus Security</div>
+<div class="emergency-num">Ext. 100 · +91-98765-00100</div>
+</div>
+<button class="emergency-call">Call</button>
+</div>
+<div class="emergency-item">
+<div class="emergency-icon">🧠</div>
+<div>
+<div class="emergency-name">Counselling Cell</div>
+<div class="emergency-num">Ext. 150 · +91-98765-00150</div>
+</div>
+<button class="emergency-call">Call</button>
+</div>
+<div class="emergency-item">
+<div class="emergency-icon">⚠️</div>
+<div>
+<div class="emergency-name">Anti-Ragging Helpline</div>
+<div class="emergency-num">1800-XXX-2900 (Toll Free)</div>
+</div>
+<button class="emergency-call">Call</button>
+</div>
+<div class="emergency-item">
+<div class="emergency-icon">👩‍💼</div>
+<div>
+<div class="emergency-name">Women's Grievance Cell</div>
+<div class="emergency-num">Ext. 160 · +91-98765-00160</div>
+</div>
+<button class="emergency-call">Call</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-logo">⬡ Chitkara University</div>
+<div class="footer-tagline">Shaping minds. Building futures. Inspiring change.</div>
+<div class="footer-links">
+<a href="#hero">Home</a>
+<a href="#map">Campus Map</a>
+<a href="#departments">Departments</a>
+<a href="#guide">Fresher Guide</a>
+<a href="#events">Events</a>
+<a href="#transport">Transport</a>
+</div>
+<div class="footer-bottom">
+    Designed with ❤️ for the Class of 2026 · Chitkara University Virtual Campus Tour<br/>
+<span style="font-size:0.72rem;opacity:0.6">College Project · HTML/CSS/JS</span>
+</div>
+</footer>
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<!-- PASTE ALL BODY HTML CONTENT HERE -->
+<!-- everything from <nav> up to </footer> -->
+<!-- keep the back-top button too -->
+<script src="script.js"></script>
+</body>
+</html>

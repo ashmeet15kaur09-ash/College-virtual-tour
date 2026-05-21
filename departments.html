@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitkara University — Departments</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{overflow-x:hidden;}
+    nav{position:sticky;top:0;z-index:9999;}
+    @media(max-width:768px){
+      .nav-links{
+        flex-direction:column;
+        gap:12px;
+      }
+      section{
+        padding:20px;
+      }
+    }
+    </style></head>
+<body><nav>
+<a class="nav-logo" href="#hero">⬡ <span>Chitkara</span>University</a>
+<ul class="nav-links">
+<li><a href="map.html" target="_blank">Campus Map</a></li>
+<li><a href="gallery.html" target="_blank">Gallery</a></li>
+<li><a href="departments.html" target="_blank">Departments</a></li>
+<li><a href="guide.html" target="_blank">Guide</a></li>
+<li><a href="events.html" target="_blank">Events</a></li>
+<li><a href="transport.html" target="_blank">Transport</a></li>
+</ul>
+<div class="nav-right">
+<button class="theme-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
+<span class="theme-icon moon">🌙</span>
+<span class="theme-icon sun">☀️</span>
+</button>
+<div class="hamburger" onclick="toggleMobileNav()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+<a href="map.html" onclick="toggleMobileNav()">Campus Map</a>
+<a href="gallery.html" onclick="toggleMobileNav()">Gallery</a>
+<a href="departments.html" onclick="toggleMobileNav()">Departments</a>
+<a href="guide.html" onclick="toggleMobileNav()">Fresher Guide</a>
+<a href="events.html" onclick="toggleMobileNav()">Events</a>
+<a href="transport.html" onclick="toggleMobileNav()">Transport</a>
+</div>
+<section id="departments">
+<div class="section-label reveal">🎓 Academics</div>
+<h2 class="section-title reveal">Our Departments</h2>
+<p class="section-sub reveal">Explore the academic homes of innovation, discovery, and excellence.</p>
+<div class="dept-grid">
+<div class="dept-card reveal" style="--dept-color:#2a5e8e">
+<span class="dept-icon">💻</span>
+<div class="dept-name">CSE</div>
+<div class="dept-full">Computer Science &amp; Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">120 Seats</span>
+<span class="dept-tag">NBA Accredited</span>
+<span class="dept-tag">4 Labs</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-1" style="--dept-color:#7b3aae">
+<span class="dept-icon">🤖</span>
+<div class="dept-name">AI/ML</div>
+<div class="dept-full">Artificial Intelligence &amp; Machine Learning</div>
+<div class="dept-meta">
+<span class="dept-tag">60 Seats</span>
+<span class="dept-tag">GPU Cluster</span>
+<span class="dept-tag">New Dept</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-2" style="--dept-color:#c8501a">
+<span class="dept-icon">⚡</span>
+<div class="dept-name">ECE</div>
+<div class="dept-full">Electronics &amp; Communication Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">90 Seats</span>
+<span class="dept-tag">VLSI Lab</span>
+<span class="dept-tag">IoT Hub</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-3" style="--dept-color:#2a6e44">
+<span class="dept-icon">🏗</span>
+<div class="dept-name">Civil</div>
+<div class="dept-full">Civil Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">90 Seats</span>
+<span class="dept-tag">Survey Lab</span>
+<span class="dept-tag">CAD Center</span>
+</div>
+</div>
+<div class="dept-card reveal" style="--dept-color:#b8850a">
+<span class="dept-icon">⚙️</span>
+<div class="dept-name">MECH</div>
+<div class="dept-full">Mechanical Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">120 Seats</span>
+<span class="dept-tag">3D Print Lab</span>
+<span class="dept-tag">CNC Center</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-1" style="--dept-color:#1e6e8a">
+<span class="dept-icon">🛢</span>
+<div class="dept-name">EEE</div>
+<div class="dept-full">Electrical &amp; Electronics Engineering</div>
+<div class="dept-meta">
+<span class="dept-tag">60 Seats</span>
+<span class="dept-tag">Power Lab</span>
+<span class="dept-tag">Solar Plant</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-2" style="--dept-color:#8e3a3a">
+<span class="dept-icon">🔬</span>
+<div class="dept-name">IT</div>
+<div class="dept-full">Information Technology</div>
+<div class="dept-meta">
+<span class="dept-tag">60 Seats</span>
+<span class="dept-tag">Cyber Lab</span>
+<span class="dept-tag">Cloud Hub</span>
+</div>
+</div>
+<div class="dept-card reveal reveal-delay-3" style="--dept-color:#4a7a1e">
+<span class="dept-icon">📊</span>
+<div class="dept-name">MBA</div>
+<div class="dept-full">Master of Business Administration</div>
+<div class="dept-meta">
+<span class="dept-tag">120 Seats</span>
+<span class="dept-tag">Bloomberg Lab</span>
+<span class="dept-tag">B-School</span>
+</div>
+</div>
+</div>
+</section><script src="script.js"></script></body>
+</html>

@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitkara University — Events</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+<style>
+    body{overflow-x:hidden;}
+    nav{position:sticky;top:0;z-index:9999;}
+    @media(max-width:768px){
+      .nav-links{
+        flex-direction:column;
+        gap:12px;
+      }
+      section{
+        padding:20px;
+      }
+    }
+    </style></head>
+<body><nav>
+<a class="nav-logo" href="#hero">⬡ <span>Chitkara</span>University</a>
+<ul class="nav-links">
+<li><a href="map.html" target="_blank">Campus Map</a></li>
+<li><a href="gallery.html" target="_blank">Gallery</a></li>
+<li><a href="departments.html" target="_blank">Departments</a></li>
+<li><a href="guide.html" target="_blank">Guide</a></li>
+<li><a href="events.html" target="_blank">Events</a></li>
+<li><a href="transport.html" target="_blank">Transport</a></li>
+</ul>
+<div class="nav-right">
+<button class="theme-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
+<span class="theme-icon moon">🌙</span>
+<span class="theme-icon sun">☀️</span>
+</button>
+<div class="hamburger" onclick="toggleMobileNav()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+<a href="map.html" onclick="toggleMobileNav()">Campus Map</a>
+<a href="gallery.html" onclick="toggleMobileNav()">Gallery</a>
+<a href="departments.html" onclick="toggleMobileNav()">Departments</a>
+<a href="guide.html" onclick="toggleMobileNav()">Fresher Guide</a>
+<a href="events.html" onclick="toggleMobileNav()">Events</a>
+<a href="transport.html" onclick="toggleMobileNav()">Transport</a>
+</div>
+<section id="events" style="background:var(--bg2)">
+<div class="section-label reveal">🎉 Campus Life</div>
+<h2 class="section-title reveal">Events &amp; Fests</h2>
+<p class="section-sub reveal">A year full of memories — hackathons, cultural fests, sports meets, and more.</p>
+<div class="events-grid">
+<div class="event-card reveal">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2025/07/Jazzee-banner.jpg"/>
+<div class="event-info">
+<div class="event-date">FEB 14–16 · 2026</div>
+<div class="event-name"> Tech Fest</div>
+<div class="event-desc">Hackathons, robotics wars, paper presentations &amp; startup pitches.</div>
+<span class="event-badge">🏆 ₹5L Prize Pool</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-1">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2022/12/Christmas-Music-Fiesta.jpg"/>
+<div class="event-info">
+<div class="event-date">MAR 7–9 · 2026</div>
+<div class="event-name">AURORA Cultural</div>
+<div class="event-desc">Dance, drama, music, fashion shows &amp; celebrity night performances.</div>
+<span class="event-badge">🎤 Star Night</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-2">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2024/11/AIU-North-Zone-Sports-Championships-banner.jpg"/>
+<div class="event-info">
+<div class="event-date">JAN 18–22 · 2026</div>
+<div class="event-name">Sports Mania</div>
+<div class="event-desc">Inter-college sports meet covering 15+ events from cricket to chess.</div>
+<span class="event-badge">🥇 Inter-college</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-3">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2017/11/SAP1.jpg"/>
+<div class="event-info">
+<div class="event-date">NOV 2–3 · 2025</div>
+<div class="event-name">Hackers 48</div>
+<div class="event-desc">48-hour non-stop hackathon. Build something world-changing.</div>
+<span class="event-badge">⚡ 48 Hours</span>
+</div>
+</div>
+<div class="event-card reveal">
+<img class="event-img" src="https://royalpatiala.in/wp-content/uploads/2023/09/pic-4-scaled.webp"/>
+<div class="event-info">
+<div class="event-date">OCT 12 · 2025</div>
+<div class="event-name">TEDx Chitkara</div>
+<div class="event-desc">Ideas worth spreading — industry leaders, innovators &amp; changemakers.</div>
+<span class="event-badge">🎙 Licensed Event</span>
+</div>
+</div>
+<div class="event-card reveal reveal-delay-1">
+<img class="event-img" src="https://www.chitkara.edu.in/wp-content/uploads/2024/12/Ozone-Day-banner.jpg"/>
+<div class="event-info">
+<div class="event-date">APR 22 · 2026</div>
+<div class="event-name">Green Campus Day</div>
+<div class="event-desc">Plantation drives, eco-workshops, waste management competitions.</div>
+<span class="event-badge">🌱 Eco Initiative</span>
+</div>
+</div>
+</div>
+</section><script src="script.js"></script></body>
+</html>
