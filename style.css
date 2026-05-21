@@ -256,7 +256,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("YOUR-IMAGE-LINK") center/cover no-repeat;
+  background: url("https://qs-igauge.blr1.cdn.digitaloceanspaces.com/universities.jpg") center/cover no-repeat;
   opacity: 0.25;
   z-index: 1;
 }
